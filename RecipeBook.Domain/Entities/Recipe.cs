@@ -10,8 +10,9 @@ namespace RecipeBook.Domain.Entities
     {
         public int RecipeID { get; set; }
         public string Name { get; set; }
+        public string Cuisine { get; set; }
         public string Ingredients { get; set; }
         public string Directions { get; set; }
-        public string Cuisine { get; set; }
+        
     }
 }
