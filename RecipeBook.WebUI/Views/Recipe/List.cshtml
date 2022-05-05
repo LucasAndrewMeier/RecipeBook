@@ -1,0 +1,16 @@
+﻿@using RecipeBook.Domain.Entities
+@model IEnumerable<Recipe>
+
+@{
+    ViewBag.Title = "Recipes";
+}
+
+@foreach (var r in Model)
+{
+    <div>
+        <h3>@r.Name</h3>
+        <h4>@r.Cuisine</h4>
+        @r.Ingredients<br />
+        @r.Directions
+    </div>
+}

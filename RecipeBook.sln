@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBook.WebUI", "RecipeBook.WebUI\RecipeBook.WebUI.csproj", "{27E79402-5D5F-44B7-92BD-1C59B6B12B1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBook.Domain", "RecipeBook.Domain\RecipeBook.Domain.csproj", "{CEDF8876-C6E4-4F2C-8B40-F5E0CBE251DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27E79402-5D5F-44B7-92BD-1C59B6B12B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E79402-5D5F-44B7-92BD-1C59B6B12B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E79402-5D5F-44B7-92BD-1C59B6B12B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E79402-5D5F-44B7-92BD-1C59B6B12B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEDF8876-C6E4-4F2C-8B40-F5E0CBE251DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEDF8876-C6E4-4F2C-8B40-F5E0CBE251DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEDF8876-C6E4-4F2C-8B40-F5E0CBE251DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEDF8876-C6E4-4F2C-8B40-F5E0CBE251DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06698E5F-24C5-481C-A24B-27BE00B0885B}
+	EndGlobalSection
+EndGlobal
