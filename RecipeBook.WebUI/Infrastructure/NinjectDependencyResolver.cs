@@ -7,6 +7,7 @@ using Ninject;
 using Moq;
 using RecipeBook.Domain.Abstract;
 using RecipeBook.Domain.Entities;
+using RecipeBook.Domain.Concrete;
 
 namespace RecipeBook.WebUI.Infrastructure
 {
@@ -29,13 +30,13 @@ namespace RecipeBook.WebUI.Infrastructure
         }
         private void AddBindings()
         {
-            Mock<IRecipeRepo> myMock = new Mock<IRecipeRepo>();
+            /*Mock<IRecipeRepo> myMock = new Mock<IRecipeRepo>();
             myMock.Setup(m => m.Recipes).Returns(new List<Recipe>
             {
                 new Recipe {Name = "Linguine", Cuisine = "Italian"},
                 new Recipe {Name = "Tamales", Cuisine = "Southwestern"}
-            });
-            mykernel.Bind<IRecipeRepo>().ToConstant(myMock.Object);
+            });*/
+            mykernel.Bind<IRecipeRepo>().To<EFRecipeRepo>();
 
         }
     }
