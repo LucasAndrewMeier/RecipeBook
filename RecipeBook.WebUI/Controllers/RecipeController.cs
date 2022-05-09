@@ -15,9 +15,11 @@ namespace RecipeBook.WebUI.Controllers
         {
             this.recipeRepo = recipeRepo;
         }
-        public ViewResult List()
+
+        public int PageSize = 5;
+        public ViewResult List(int page = 1)
         {
-            return View(recipeRepo.Recipes);
+            return View(recipeRepo.Recipes.OrderBy(p => p.RecipeID).Skip((page - 1) * PageSize).Take(PageSize));
         }
     }
 }
