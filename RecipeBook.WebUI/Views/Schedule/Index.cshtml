@@ -18,28 +18,28 @@
         </tr>
     </thead>
     <tbody id="calendarBody">
+        
+            
         <tr>
-            <td id="Sun">
-                
-            </td>
-            <td id="Mon">
-                
-            </td>
-            <td id="Tue">
-                
-            </td>
-            <td id="Wed">
-                
-            </td>
-            <td id="Thu">
-                
-            </td>
-            <td id="Fri">
-                
-            </td>
-            <td id="Sat">
-                
-            </td>
-        </tr>
+            <td id="Sun" >
+                @foreach (var line in Model.Schedule.Lines)
+                {
+                <span class="text-left">@line.Recipe.Name</span>
+                <span class="text-right">@line.Recipe.Cuisine</span>
+                }
+                </td>
+                <td id="Mon">
+                </td>
+                <td id="Tue">
+                </td>
+                <td id="Wed">
+                </td>
+                <td id="Thu">
+                </td>
+                <td id="Fri">
+                </td>
+                <td id="Sat">
+                </td>
+            </tr>
     </tbody>
 </table>
