@@ -4,11 +4,19 @@
 @{
     ViewBag.Title = "Recipes";
 }
+<div class="row panel">
 
-@foreach (var r in Model.Recipes)
-{
-    @Html.Partial("RecipeSummary",r)
-}
-<div class="btn-group pull-right">
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, cuisine = Model.CurrentCuisine}))
+    <div id="categories" class="col-xs-3">
+        @Html.Action("Menu", "Nav")
+    </div>
+
+    <div class="col-xs-8">
+        @foreach (var r in Model.Recipes)
+        {
+            @Html.Partial("RecipeSummary", r)
+        }
+        <div class="btn-group pull-right">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, cuisine = Model.CurrentCuisine }))
+        </div>
+    </div>
 </div>

@@ -40,6 +40,7 @@ namespace RecipeBook.Domain.Entities
         // Remove a product
         public void RemoveLine(Recipe recipe)
         {
+            
             lineCollection.RemoveAll(l => l.Recipe.RecipeID == recipe.RecipeID);
         }
 

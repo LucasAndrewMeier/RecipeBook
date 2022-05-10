@@ -8,11 +8,21 @@
             @Model.Cuisine
         </span>
     </h3>
-    @using(Html.BeginForm("AddToSchedule", "Schedule"))
+    @using(Html.BeginForm("AddToSchedule", "Schedule","Day"))
             {
                 <div class="pull-right">
                     @Html.HiddenFor(x=> x.RecipeID)
                     @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <label for="day">Select the day of the week:</label>
+                    <select id="day" name="day">
+                        <option value="0">Sunday</option>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thursday</option>
+                        <option value="5">Friday</option>
+                        <option value="6">Saturday</option>
+                    </select>
                     <input type="submit" class="btn btn-success" value="Add to Schedule"/>
                 </div>
             }

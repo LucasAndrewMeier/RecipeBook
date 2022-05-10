@@ -3,43 +3,70 @@
 @{
     ViewBag.Title = "RecipeBook: Your Schedule";
 }
+<head>
+    <style>
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: 10px 15px;
+        }
+
+        thead {
+            background: #395870;
+            color: #fff;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f0f0f2;
+        }
+
+        td {
+            border-bottom: 1px solid #cecfd5;
+            border-right: 1px solid #cecfd5;
+        }
+
+            td:first-child {
+                border-left: 1px solid #cecfd5;
+            }
+    </style>
+</head>
+
 
 <h2>This Weeks Schedule</h2>
 <table class="table" id="calendar">
     <thead>
         <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
+            <th scope="col">Sun</th>
+            <th scope="col">Mon</th>
+            <th scope="col">Tue</th>
+            <th scope="col">Wed</th>
+            <th scope="col">Thu</th>
+            <th scope="col">Fri</th>
+            <th scope="col">Sat</th>
         </tr>
     </thead>
     <tbody id="calendarBody">
-        
-            
         <tr>
-            <td id="Sun" >
+            <td>
                 @foreach (var line in Model.Schedule.Lines)
                 {
                 <span class="text-left">@line.Recipe.Name</span>
                 <span class="text-right">@line.Recipe.Cuisine</span>
+                <br />
                 }
-                </td>
-                <td id="Mon">
-                </td>
-                <td id="Tue">
-                </td>
-                <td id="Wed">
-                </td>
-                <td id="Thu">
-                </td>
-                <td id="Fri">
-                </td>
-                <td id="Sat">
-                </td>
-            </tr>
+            </td>
+        </tr>
     </tbody>
 </table>
+
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Select More Recipes</a>
+</div>
+
+<script>
+    
+</script>
