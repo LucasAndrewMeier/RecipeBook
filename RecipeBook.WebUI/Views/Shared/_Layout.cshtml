@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <title>@ViewBag.Title - RecipeBook</title>
 </head>
@@ -17,19 +17,18 @@
 
     <div class="row panel">
         <div id="categories" class="col-xs-3">
-
+            @Html.Action("Menu", "Nav")
         </div>
 
         <div class="col-xs-8">
             @RenderBody()
         </div>
-        
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - RecipeBook</p>
-        </footer>
-    </div>
 
+    </div>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - RecipeBook</p>
+    </footer>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>

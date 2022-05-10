@@ -1,0 +1,28 @@
+﻿@model RecipeBook.Domain.Entities.Recipe
+
+<div class="well">
+
+    <h3>
+    @Model.Name
+        <span class="pull-right label label-primary">
+            @Model.Cuisine
+        </span>
+    </h3>
+    @using(Html.BeginForm("AddToSchedule", "Schedule"))
+            {
+                <div class="pull-right">
+                    @Html.HiddenFor(x=> x.RecipeID)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" class="btn btn-success" value="Add to Schedule"/>
+                </div>
+            }
+    <br />
+    <br />
+    <span class="lead">
+        @Model.Ingredients
+        <br />
+        <br />
+        @Model.Directions
+    </span>
+    
+</div>

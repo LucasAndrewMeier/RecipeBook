@@ -7,14 +7,8 @@
 
 @foreach (var r in Model.Recipes)
 {
-    <div class="well">
-
-        <h3>@r.Name</h3>
-        <h4>@r.Cuisine</h4>
-        @r.Ingredients<br />
-        @r.Directions
-    </div>
+    @Html.Partial("RecipeSummary",r)
 }
-<div>
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new {page=x}))
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, cuisine = Model.CurrentCuisine}))
 </div>

@@ -12,20 +12,42 @@ namespace RecipeBook.WebUI
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            routes.MapRoute(name: null,
-                            url: "Page{page}",
-                            defaults: new
+            /*List the first page of recipes from all cuisines*/
+            routes.MapRoute(name: null, "", new
                             {
                                 Controller = "Recipe",
-                                action = "List"
+                                action = "List",
+                                cuisine = (string) null,
+                                page = 1
                             });
+            /*List the specified page of recipes from /Page(x), showing all cuisine*/
+            routes.MapRoute(name: null, "Page{page}", new
+            {
+                Controller = "Recipe",
+                action = "List",
+                cuisine = (string)null,
+                
+            },
+            new { page = @"\d+" });
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Recipe", action = "List", id = UrlParameter.Optional }
-            );
+            /*/cuisine(x) showing the first page of items from a specific cuisine*/
+            routes.MapRoute(name: null, "{cuisine}", new
+            {
+                Controller = "Recipe",
+                action = "List",
+                page = 1
+            });
+
+            /*List /cuisine(x)/Page(x) specified recipe of specified cuisine*/
+            routes.MapRoute(name: null, "{cuisine}/Page{page}", new
+            {
+                Controller = "Recipe",
+                action = "List",
+            },
+            new { page = @"\d+" });
+
+            routes.MapRoute(null, "{controller}/{action}/");
+                
         }
     }
 }

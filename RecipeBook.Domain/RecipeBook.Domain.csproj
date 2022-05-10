@@ -76,6 +76,7 @@
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFRecipeRepo.cs" />
     <Compile Include="Entities\Recipe.cs" />
+    <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

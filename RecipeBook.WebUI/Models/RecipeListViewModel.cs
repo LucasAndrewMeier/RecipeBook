@@ -9,5 +9,6 @@ namespace RecipeBook.WebUI.Models
     {
         public IEnumerable<Recipe> Recipes { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        public string CurrentCuisine { get; set; }
     }
 }

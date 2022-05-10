@@ -18,17 +18,20 @@ namespace RecipeBook.WebUI.Controllers
         }
 
         public int PageSize = 5;
-        public ViewResult List(int page = 1)
+        public ViewResult List(string cuisine, int page = 1)
         {
             RecipeListViewModel model = new RecipeListViewModel
             {
-                Recipes = recipeRepo.Recipes.OrderBy(p => p.RecipeID).Skip((page - 1) * PageSize).Take(PageSize),
+                Recipes = recipeRepo.Recipes.Where(p=> cuisine == null || p.Cuisine == cuisine).OrderBy(p => p.RecipeID).Skip((page - 1) * PageSize).Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = recipeRepo.Recipes.Count()
-                }
+                    TotalItems = cuisine == null ?
+                                        recipeRepo.Recipes.Count() :
+                                        recipeRepo.Recipes.Where(e => e.Cuisine == cuisine).Count()
+                },
+                CurrentCuisine = cuisine
             };
             return View(model);
         }
