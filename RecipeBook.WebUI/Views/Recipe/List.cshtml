@@ -1,16 +1,20 @@
 ﻿@using RecipeBook.Domain.Entities
-@model IEnumerable<Recipe>
+@model RecipeBook.WebUI.Models.RecipeListViewModel
 
 @{
     ViewBag.Title = "Recipes";
 }
 
-@foreach (var r in Model)
+@foreach (var r in Model.Recipes)
 {
-    <div>
+    <div class="well">
+
         <h3>@r.Name</h3>
         <h4>@r.Cuisine</h4>
         @r.Ingredients<br />
         @r.Directions
     </div>
 }
+<div>
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new {page=x}))
+</div>
