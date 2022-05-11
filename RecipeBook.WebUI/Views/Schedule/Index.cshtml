@@ -29,9 +29,11 @@
             border-right: 1px solid #cecfd5;
         }
 
-            td:first-child {
-                border-left: 1px solid #cecfd5;
-            }
+        td:first-child {
+            border-left: 1px solid #cecfd5;
+        }
+
+        
     </style>
 </head>
 
@@ -56,9 +58,20 @@
                 {
                 <span class="text-left">@line.Recipe.Name</span>
                 <span class="text-right">@line.Recipe.Cuisine</span>
+                <span>
+                    @using (Html.BeginForm("RemoveFromSchedule", "Schedule"))
+                    {
+                        @Html.Hidden("RecipeID", line.Recipe.RecipeID)
+                        @Html.HiddenFor(x => x.ReturnUrl)
+                        <input class="btn btn-sm btn-warning" type="submit" value="Remove"/>
+                    }
+                </span>
                 <br />
+
                 }
             </td>
+            
+            
         </tr>
     </tbody>
 </table>

@@ -28,23 +28,36 @@ namespace RecipeBook.WebUI.Controllers
             }
             return schedule;
         }
-        public RedirectToRouteResult AddToSchedule(int recipeID, string returnUrl)
+        public RedirectToRouteResult AddToSchedule(Schedule schedule, int recipeID, string returnUrl)
         {
             Recipe recipe = recipeRepo.Recipes.FirstOrDefault(r => r.RecipeID == recipeID);
 
             if (recipe != null)
             {
-                GetSchedule().AddRecipe(recipe, 1);
+                schedule.AddRecipe(recipe, 1);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-        public ViewResult Index(string returnUrl)
+        public ViewResult Index(Schedule schedule, string returnUrl)
         {
             return View(new ScheduleIndexViewModel
             {
-                Schedule = GetSchedule(),
+                Schedule = schedule,
                 ReturnUrl = returnUrl
             });
+        }
+        public RedirectToRouteResult RemoveFromSchedule(Schedule schedule, int recipeID, string returnUrl)
+        {
+            Recipe recipe = recipeRepo.Recipes.FirstOrDefault(r => r.RecipeID == recipeID);
+            if(recipe != null)
+            {
+                schedule.RemoveLine(recipe);
+            }
+            return RedirectToAction("Index", new { returnUrl });
+        }
+        public PartialViewResult Summary(Schedule schedule)
+        {
+            return PartialView(schedule);
         }
     }
 }
