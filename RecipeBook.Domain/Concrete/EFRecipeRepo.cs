@@ -15,5 +15,25 @@ namespace RecipeBook.Domain.Concrete
         {
             get { return context.Recipes; }
         }
+
+        public void SaveRecipe(Recipe recipe)
+        {
+            if(recipe.RecipeID == 0)
+            {
+                context.Recipes.Add(recipe);
+            }
+            else
+            {
+                Recipe dbEntry = context.Recipes.Find(recipe.RecipeID);
+                if(dbEntry != null)
+                {
+                    dbEntry.Name = recipe.Name;
+                    dbEntry.Cuisine = recipe.Cuisine;
+                    dbEntry.Ingredients = recipe.Ingredients;
+                    dbEntry.Directions = recipe.Directions;
+                }
+            }
+            context.SaveChanges();
+        }
     }
 }

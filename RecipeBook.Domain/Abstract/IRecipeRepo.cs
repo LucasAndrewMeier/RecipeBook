@@ -10,5 +10,6 @@ namespace RecipeBook.Domain.Abstract
     public interface IRecipeRepo
     {
         IEnumerable<Recipe> Recipes { get; }
+        void SaveRecipe(Recipe recipe);
     }
 }
