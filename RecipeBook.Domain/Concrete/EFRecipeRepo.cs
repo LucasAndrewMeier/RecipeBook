@@ -35,5 +35,15 @@ namespace RecipeBook.Domain.Concrete
             }
             context.SaveChanges();
         }
+        public Recipe DeleteRecipe(int recipeID)
+        {
+            Recipe dbEntry = context.Recipes.Find(recipeID);
+            if(dbEntry != null)
+            {
+                context.Recipes.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
     }
 }

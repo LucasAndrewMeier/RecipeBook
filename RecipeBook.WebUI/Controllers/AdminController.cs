@@ -41,5 +41,19 @@ namespace RecipeBook.WebUI.Controllers
                 return View(recipe);
             }
         }
+        public ViewResult Create()
+        {
+            return View("Edit", new Recipe());
+        }
+        [HttpPost]
+        public ActionResult Delete(int recipeID)
+        {
+            Recipe deletedRecipe = recipeRepo.DeleteRecipe(recipeID);
+            if(deletedRecipe != null)
+            {
+                TempData["message"] = string.Format("{0} was deleted succesfully", deletedRecipe.Name);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
