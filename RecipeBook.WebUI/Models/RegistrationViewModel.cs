@@ -18,5 +18,6 @@ namespace RecipeBook.WebUI.Models
         public string LastName { get; set; }
         [Required]
         public string Email { get; set; }
+        public string VCode { get; set; }
     }
 }

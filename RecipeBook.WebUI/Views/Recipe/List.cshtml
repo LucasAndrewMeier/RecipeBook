@@ -1,5 +1,7 @@
 ﻿@using RecipeBook.Domain.Entities
+@using RecipeBook.WebUI.Controllers
 @model RecipeBook.WebUI.Models.RecipeListViewModel
+
 
 @{
     ViewBag.Title = "Recipes";
@@ -11,6 +13,7 @@
     </div>
 
     <div class="col-xs-8">
+        
         @foreach (var r in Model.Recipes)
         {
             @Html.Partial("RecipeSummary", r)

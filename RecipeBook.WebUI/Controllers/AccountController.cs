@@ -22,6 +22,7 @@ namespace RecipeBook.WebUI.Controllers
         {
             return View();
         }
+        
         [HttpPost]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
@@ -41,6 +42,7 @@ namespace RecipeBook.WebUI.Controllers
             {
                 return View();
             }
+            
         }
         public ViewResult Registration()
         {
@@ -66,13 +68,13 @@ namespace RecipeBook.WebUI.Controllers
                         ModelState.Clear();
                         return RedirectToAction("Login", "Account");
                     }
-                    ViewBag.ErrorMessage = "User is already in the system";
+                    ModelState.AddModelError("", "User is already in the system");
                     return View();
                 }
             }
             catch (Exception e)
             {
-                ViewBag.ErrorMessage = "Some exception occured" + e;
+                ModelState.AddModelError("", "Some exception occured" + e);
                 return View();
             }
         }
