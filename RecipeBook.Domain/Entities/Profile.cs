@@ -29,5 +29,6 @@ namespace RecipeBook.Domain.Entities
 
         [HiddenInput(DisplayValue = false)]
         public int isAdmin { get; }
+        public string VCode { get; set; }
     }
 }
