@@ -8,24 +8,189 @@
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <title>@ViewBag.Title - RecipeBook</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        a {
+            color: #1D3D45;
+            font-weight: 600;
+            font-size: x-large;
+        }
+        /* Set a style for all buttons */
+        button {
+            font-weight: 600;
+            font-size: large;
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 12px;
+            margin: 8px 8px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.8;
+            border-radius: 26px;
+        }
+
+        .buttonLogIn {
+            color: #1D3D45;
+            background-color: #ffffff;
+            border: 2px solid #1D3D45;
+        }
+
+        .buttonSignUp {
+            border: 2px solid #04AA6D;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+        }
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .signupbtn {
+            float: left;
+            width: 50%;
+        }
+        /* Add padding to container elements */
+        .container {
+            padding: 20px;
+        }
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: #474e5d;
+            padding-top: 50px;
+        }
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 35px;
+            top: 15px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #f1f1f1;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #f44336;
+                cursor: pointer;
+            }
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .body-content {
+            margin-top: 80px;
+        }
+
+        .navbar-nav {
+            align-content: center;
+        }
+
+        .MenuButton {
+            flex: 0 0 100px;
+            background: none !important;
+            opacity: 0.8;
+        }
+        .text-styling {
+            color: #04AA6D;
+            margin-right: 1em;
+            font-weight: 700;
+        }
+            .text-styling:hover {
+                color: black;
+                text-decoration: none;
+            }
+
+            .MenuButton:hover {
+                opacity: 1;
+                color: #1D3D45;
+            }
+        .navbar
+        /* Change styles for cancel button and signup button on extra small screens */
+        @@media screen and (max-width: 300px) {
+            .cancelbtn, .signupbtn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar navbar-inverse" role="navigation">
-
-        <a class="navbar-brand" href="#" style="margin:1em">Recipe Book</a>
+    <div class="navbar navbar-static-top">
+        <div class="navbar-header">
+            <img src="~/Content/Images/Logo.png" style="width:80px; margin-left:20px; " />
+            <h2 class="pull-right" style="color:black; font-weight: 700;">Recipe Book</h2>
+        </div>
 
         <div class="text-right" style="margin:1em">
             @Html.ShowButton("Admin", "new { returnUrl = Request.Url.PathAndQuery }")
-            @Html.ActionLink("Log In", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn btn-sm" })
-            @Html.ActionLink("Sign Up", "Registration", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn btn-sm" })
+            @* @Html.ActionLink("Log In", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn btn-sm" })*@
+
+
+            @*@Html.ActionLink("Sign Up", "Registration", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn btn-sm" })*@
+            @Html.ActionLink("Schedule", "Index", "Schedule", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
+            @Html.ActionLink("Recipe Book", "List", "Recipe", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
+            <button class="btn buttonSignUp btn-med" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Log In</button>
         </div>
     </div>
-    <div>
-        @Html.ActionLink("Schedule", "Index", "Schedule", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn" })
-        @Html.ActionLink("Recipe Book", "List","Recipe", new {returnUrl = Request.Url.PathAndQuery }, new {@class = "btn btn-default navbar-btn" })
+    <div class="">
         
+
     </div>
-        
+    @using (Html.BeginForm("Login", "Account", null, FormMethod.Post))
+    {
+        <div id="id02" class="modal">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content" action="/action_page.php">
+                <div class="container">
+                    <h1>Log In</h1>
+
+                    <label for="name"><b>User Name</b></label>
+                    <input type="text" placeholder="Enter UserName" name="UserName" required />
+
+                    <label for="Password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="Password" required />
+
+                    <div class="clearfix">
+                        <button type="submit" class="signupbtn">Log In</button>
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>}
+    <!--End Log In Modal-->
 
     @RenderBody()
 

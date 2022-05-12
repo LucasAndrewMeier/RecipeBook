@@ -30,6 +30,7 @@ namespace RecipeBook.WebUI.Controllers
             {
                 if(authProvider.Authenticate(model.UserName, model.Password))
                 {
+                    
                     return Redirect(returnUrl ?? Url.Action("Index", "Admin"));
                 }
                 else
@@ -59,10 +60,6 @@ namespace RecipeBook.WebUI.Controllers
                     var chkUser = (from s in context.Profiles where s.UserName == objNewUser.UserName || s.Email == objNewUser.Email select s).FirstOrDefault();
                     if (chkUser == null)
                     {
-                        var keyNew = Helper.GeneratePassword(10);
-                        var password = Helper.EncodePassword(objNewUser.Password, keyNew);
-                        objNewUser.Password = password;
-                        objNewUser.VCode = keyNew;
                         context.Profiles.Add(objNewUser);
                         context.SaveChanges();
                         ModelState.Clear();

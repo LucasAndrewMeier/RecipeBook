@@ -27,8 +27,5 @@ namespace RecipeBook.Domain.Entities
         [Required(ErrorMessage ="Please enter a valid email address")]
         public string Email { get; set; }
 
-        [HiddenInput(DisplayValue = false)]
-        public int isAdmin { get; }
-        public string VCode { get; set; }
     }
 }
