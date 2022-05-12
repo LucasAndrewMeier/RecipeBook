@@ -17,7 +17,7 @@ namespace RecipeBook.WebUI.Controllers
             recipeRepo = repo;
         }
 
-        private Schedule GetSchedule()
+        /*private Schedule GetSchedule()
         {
             Schedule schedule = (Schedule)Session["Schedule"];
 
@@ -27,7 +27,7 @@ namespace RecipeBook.WebUI.Controllers
                 Session["Schedule"] = schedule;
             }
             return schedule;
-        }
+        }*/
         public RedirectToRouteResult AddToSchedule(Schedule schedule, int recipeID, string returnUrl)
         {
             Recipe recipe = recipeRepo.Recipes.FirstOrDefault(r => r.RecipeID == recipeID);

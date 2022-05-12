@@ -72,9 +72,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IProfileRepo.cs" />
     <Compile Include="Abstract\IRecipeRepo.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Concrete\EFProfileRepo.cs" />
     <Compile Include="Concrete\EFRecipeRepo.cs" />
+    <Compile Include="Entities\Profile.cs" />
     <Compile Include="Entities\Recipe.cs" />
     <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

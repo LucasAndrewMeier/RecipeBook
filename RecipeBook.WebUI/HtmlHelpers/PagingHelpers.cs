@@ -4,13 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Text;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using RecipeBook.WebUI.Models;
 
 namespace RecipeBook.WebUI.HtmlHelpers
 {
+    public static class HtmlExtensions
+    {
+        
+        public static MvcHtmlString ShowButton(this HtmlHelper html, string name, string function)
+        {
+            
+            var isAdmin = html.ViewContext.HttpContext.User.Identity.IsAuthenticated;
+            if (isAdmin)
+            {
+                return html.ActionLink(name, "Index", "Admin", function, new { @class = "btn btn-default navbar-btn btn-sm btn-secondary" });
+            }
+            return new MvcHtmlString(string.Empty);
+        }
+    }
     public static class PagingHelpers
     {
-        public static MvcHtmlString PageLinks(this HtmlHelper html,PagingInfo pagingInfo,Func<int,string> pageUrl)
+        public static MvcHtmlString PageLinks(this HtmlHelper html, PagingInfo pagingInfo, Func<int,string> pageUrl)
         {
             StringBuilder result = new StringBuilder();
             for(int i = 1; i<= pagingInfo.TotalPages; i++)
@@ -30,5 +45,6 @@ namespace RecipeBook.WebUI.HtmlHelpers
             }
             return MvcHtmlString.Create(result.ToString());
         }
+
     }
 }

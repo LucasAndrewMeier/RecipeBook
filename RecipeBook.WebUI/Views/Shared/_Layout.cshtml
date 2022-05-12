@@ -12,16 +12,23 @@
 </head>
 <body>
     <div class="navbar navbar-inverse" role="navigation">
-        <a class="navbar-brand" href="#" style="margin:1em">Recipe Book</a>
-        <div class="text-right" style="margin:1em">
-            @Html.ActionLink("Schedule", "Index", "Schedule", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn" })
-        </div>
 
+        <a class="navbar-brand" href="#" style="margin:1em">Recipe Book</a>
+
+        <div class="text-right" style="margin:1em">
+            @Html.ShowButton("Admin", "new { returnUrl = Request.Url.PathAndQuery }")
+            @Html.ActionLink("Log In", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn btn-sm" })
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Schedule", "Index", "Schedule", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn" })
+        @Html.ActionLink("Recipe Book", "List","Recipe", new {returnUrl = Request.Url.PathAndQuery }, new {@class = "btn btn-default navbar-btn" })
+        
     </div>
 
 
-            @RenderBody()
-        
+    @RenderBody()
+
     <hr />
     <footer>
         <p>&copy; @DateTime.Now.Year - RecipeBook</p>

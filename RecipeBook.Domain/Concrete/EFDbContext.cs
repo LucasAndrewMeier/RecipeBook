@@ -11,5 +11,6 @@ namespace RecipeBook.Domain.Concrete
     public class EFDbContext : DbContext
     {
         public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
     }
 }

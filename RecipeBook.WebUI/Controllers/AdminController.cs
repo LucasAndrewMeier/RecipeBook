@@ -8,6 +8,7 @@ using RecipeBook.Domain.Entities;
 
 namespace RecipeBook.WebUI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IRecipeRepo recipeRepo;
