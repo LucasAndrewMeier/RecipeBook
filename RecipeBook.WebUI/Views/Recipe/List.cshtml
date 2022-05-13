@@ -18,7 +18,7 @@
         {
             @Html.Partial("RecipeSummary", r)
         }
-        <div class="btn-group pull-right">
+        <div class="text-right">
             @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, cuisine = Model.CurrentCuisine }))
         </div>
     </div>

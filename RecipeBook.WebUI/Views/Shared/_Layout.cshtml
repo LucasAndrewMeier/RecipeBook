@@ -9,33 +9,40 @@
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <title>@ViewBag.Title - RecipeBook</title>
     <style>
+
         body {
             font-family: Arial, Helvetica, sans-serif;
+            margin:auto;
+            max-width:1280px;
+
         }
 
         * {
             box-sizing: border-box;
         }
         a {
+            
             color: #1D3D45;
             font-weight: 600;
             font-size: x-large;
         }
         /* Set a style for all buttons */
-        button {
+        button, input, select, .menuItems {
             font-weight: 600;
-            font-size: large;
+            font-size: medium;
             background-color: #04AA6D;
             color: white;
-            padding: 12px 12px;
-            margin: 8px 8px;
+            padding: 5px 5px;
+            margin: 5px 5px;
             border: none;
             cursor: pointer;
-            width: 100%;
+            width: 80%;
             opacity: 0.8;
             border-radius: 26px;
+            float:right;
+            text-align:center;
+            
         }
-
         .buttonLogIn {
             color: #1D3D45;
             background-color: #ffffff;
@@ -108,7 +115,7 @@
         .navbar {
             background-color: white;
             padding: 20px;
-            margin-bottom: 20px;
+            
         }
 
         .body-content {
@@ -125,12 +132,13 @@
             opacity: 0.8;
         }
         .text-styling {
-            color: #04AA6D;
+            color: black;
+            
             margin-right: 1em;
             font-weight: 700;
         }
             .text-styling:hover {
-                color: black;
+                color: #04AA6D;
                 text-decoration: none;
             }
 
@@ -138,36 +146,45 @@
                 opacity: 1;
                 color: #1D3D45;
             }
-        .navbar
+        
         /* Change styles for cancel button and signup button on extra small screens */
-        @@media screen and (max-width: 300px) {
+        @@media screen and (max-width: 767px) {
             .cancelbtn, .signupbtn {
                 width: 100%;
+            }
+            #Title{
+                display:none;
+            }
+            #categories{
+                display:block;
             }
         }
     </style>
 </head>
 <body>
     <div class="navbar navbar-static-top">
-        <div class="navbar-header">
-            <img src="~/Content/Images/Logo.png" style="width:80px; margin-left:20px; " />
-            <h2 class="pull-right" style="color:black; font-weight: 700;">Recipe Book</h2>
+        <div class="navbar-right">
+            <button class="buttonSignUp" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Log In</button>
         </div>
 
-        <div class="text-right" style="margin:1em">
+        <div class="text-center">
+            <div class="pull-left">
+                <h1 id="Title" class="pull-left" style="color:black; margin-top:50px; margin-left:35px; font-weight: 700;">Recipe Book</h1>
+            </div>
+        </div>
+        
+    </div>
+    <div class="nav navbar navbar-static-top">
+        <div class="text-center">
             @Html.ShowButton("Admin", "new { returnUrl = Request.Url.PathAndQuery }")
             @* @Html.ActionLink("Log In", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn btn-sm" })*@
 
 
             @*@Html.ActionLink("Sign Up", "Registration", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn btn-sm" })*@
             @Html.ActionLink("Schedule", "Index", "Schedule", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
-            @Html.ActionLink("Recipe Book", "List", "Recipe", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
-            <button class="btn buttonSignUp btn-med" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Log In</button>
-        </div>
-    </div>
-    <div class="">
-        
+            @Html.ActionLink("Recipes", "List", "Recipe", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
 
+        </div>
     </div>
     @using (Html.BeginForm("Login", "Account", null, FormMethod.Post))
     {
@@ -196,7 +213,7 @@
 
     <hr />
     <footer>
-        <p>&copy; @DateTime.Now.Year - RecipeBook</p>
+        <p class="text-center">&copy; @DateTime.Now.Year - RecipeBook</p>
     </footer>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>

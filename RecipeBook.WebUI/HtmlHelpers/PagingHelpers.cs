@@ -18,7 +18,7 @@ namespace RecipeBook.WebUI.HtmlHelpers
             var isAdmin = html.ViewContext.HttpContext.User.Identity.IsAuthenticated;
             if (isAdmin)
             {
-                return html.ActionLink(name, "Index", "Admin", function, new { @class = "btn btn-default navbar-btn btn-sm btn-secondary" });
+                return html.ActionLink(name, "Index", "Admin", function, new { @class = "text-styling" });
             }
             return new MvcHtmlString(string.Empty);
         }
