@@ -16,24 +16,43 @@
         }
 
         thead {
-            background: #395870;
+            background: #04AA6D;
             color: #fff;
         }
 
         tbody tr:nth-child(even) {
-            background: #f0f0f2;
+            background: #1D3D45;
         }
-
-        td {
-            border-bottom: 1px solid #cecfd5;
-            border-right: 1px solid #cecfd5;
+        a {
+            color: #1D3D45;
+            font-weight: 600;
+            font-size: x-large;
+            text-decoration:none;
         }
-
-        td:first-child {
-            border-left: 1px solid #cecfd5;
+            a:hover {
+                color: #04AA6D;
+                font-weight: 600;
+                font-size: x-large;
+                text-decoration: none;
+            }
+        button, input, select {
+            font-weight: 600;
+            font-size: medium;
+            background-color: #04AA6D;
+            color: white;
+            padding: 5px 5px;
+            margin: 5px 5px;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            min-width: 20%;
+            max-width: 100%;
+            opacity: 0.8;
+            border-radius: 26px;
+            float: right;
+            text-align: center;
         }
-
-        
+            
     </style>
 </head>
 
@@ -63,7 +82,7 @@
                     {
                         @Html.Hidden("RecipeID", line.Recipe.RecipeID)
                         @Html.HiddenFor(x => x.ReturnUrl)
-                        <input class="btn btn-sm btn-warning" type="submit" value="Remove"/>
+                        <input class="button btn-danger" type="submit" value="Remove"/>
                     }
                 </span>
                 <br />
@@ -77,9 +96,5 @@
 </table>
 
 <div class="text-center">
-    <a class="btn btn-primary" href="@Model.ReturnUrl">Select More Recipes</a>
+    <a href="@Model.ReturnUrl">Select More Recipes</a>
 </div>
-
-<script>
-    
-</script>

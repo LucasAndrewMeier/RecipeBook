@@ -6,7 +6,7 @@
 
 <div class="panel">
     <div class="panel-heading">
-        <h3>Edit @Model.Name</h3>
+        <h3>@Model.Name</h3>
     </div>
 
     @using (Html.BeginForm("Edit","Admin"))
@@ -36,7 +36,7 @@
                 }
             }
         </div>
-        <div class="panel-footer">
+        <div class="panel-footer text-center">
             <input type="submit" value="Save" class="btn btn-primary"/>
             @Html.ActionLink("Cancel and return to List", "Index", null, new { @class = "btn btn-default"})
         </div>

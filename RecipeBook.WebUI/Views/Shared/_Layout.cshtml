@@ -133,7 +133,6 @@
         }
         .text-styling {
             color: black;
-            
             margin-right: 1em;
             font-weight: 700;
         }
@@ -162,7 +161,7 @@
     </style>
 </head>
 <body>
-    <div class="navbar navbar-static-top">
+    <div class="navbar ">
         <div class="navbar-right">
             <button class="buttonSignUp" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Log In</button>
         </div>
@@ -174,7 +173,7 @@
         </div>
         
     </div>
-    <div class="nav navbar navbar-static-top">
+    <div class="nav navbar ">
         <div class="text-center">
             @Html.ShowButton("Admin", "new { returnUrl = Request.Url.PathAndQuery }")
             @* @Html.ActionLink("Log In", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn btn-sm" })*@
@@ -190,17 +189,17 @@
     {
         <div id="id02" class="modal">
             <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <form class="modal-content" action="/action_page.php">
+            <form class="modal-content"  action="/action_page.php">
                 <div class="container">
-                    <h1>Log In</h1>
+                    <h1 style="color:white;">Log In</h1>
 
-                    <label for="name"><b>User Name</b></label>
+                    <label style="color:white;" for="name"><b>User Name</b></label>
                     <input type="text" placeholder="Enter UserName" name="UserName" required />
-
-                    <label for="Password"><b>Password</b></label>
+                    <br />
+                    <label style="color:white;" for="Password"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="Password" required />
 
-                    <div class="clearfix">
+                    <div class="clearfix center-block">
                         <button type="submit" class="signupbtn">Log In</button>
                         <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
                     </div>
@@ -217,5 +216,17 @@
     </footer>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        // Get modal
+     
+        var modal2 = document.getElementById('id02');
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+
+    </script>
 </body>
 </html>
