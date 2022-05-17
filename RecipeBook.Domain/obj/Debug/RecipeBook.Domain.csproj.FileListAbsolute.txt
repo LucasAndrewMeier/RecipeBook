@@ -1,5 +1,8 @@
+C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\RecipeBook.Domain.dll.config
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\RecipeBook.Domain.dll
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\RecipeBook.Domain.pdb
+C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\EntityFramework.dll
+C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.Helpers.dll
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.Mvc.dll
@@ -7,6 +10,8 @@ C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.WebPages.dll
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\EntityFramework.xml
+C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.Helpers.xml
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.Mvc.xml
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.Razor.xml
@@ -18,8 +23,3 @@ C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.csproj.CopyComplete
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.dll
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.pdb
-C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\RecipeBook.Domain.dll.config
-C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\EntityFramework.dll
-C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\EntityFramework.xml
-C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\EntityFramework.SqlServer.xml
