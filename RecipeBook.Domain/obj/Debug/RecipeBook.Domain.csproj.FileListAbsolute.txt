@@ -22,3 +22,4 @@ C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.csproj.CopyComplete
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.dll
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.pdb
+C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.csproj.AssemblyReference.cache

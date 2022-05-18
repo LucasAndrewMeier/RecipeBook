@@ -2,22 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecipeBook.WebUI.Models
 {
     public class RegistrationViewModel
     {
+        [Key, Column(Order = 1)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int ProfileID { get; set; }
         [Required]
-        public string UserName { get; set; }
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}")]
+        public string Email { get; set; }
         [Required]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
         public string Password { get; set; }
         [Required]
+        [StringLength(50, MinimumLength = 2)]
         public string FirstName { get; set; }
         [Required]
+        [StringLength(50, MinimumLength = 2)]
         public string LastName { get; set; }
+
+        [NotMapped]
         [Required]
-        public string Email { get; set; }
-        public string VCode { get; set; }
+        [System.ComponentModel.DataAnnotations.Compare("Password")]
+        public string ConfirmPassword { get; set; }
+        public string FullName()
+        {
+            return this.FirstName + " " + this.LastName;
+        }
+
     }
 }

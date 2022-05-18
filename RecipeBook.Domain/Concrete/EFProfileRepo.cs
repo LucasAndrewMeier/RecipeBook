@@ -8,7 +8,7 @@ using RecipeBook.Domain.Entities;
 
 namespace RecipeBook.Domain.Concrete
 {
-    class EFProfileRepo : IProfileRepo
+    public class EFProfileRepo : IProfileRepo
     {
         private EFDbContext context = new EFDbContext();
         public IEnumerable<Profile> Profiles
@@ -26,7 +26,6 @@ namespace RecipeBook.Domain.Concrete
                 Profile dbEntry = context.Profiles.Find(profile.ProfileID);
                 if (dbEntry != null)
                 {
-                    dbEntry.UserName = profile.UserName;
                     dbEntry.FirstName = profile.FirstName;
                     dbEntry.LastName = profile.LastName;
                     dbEntry.Email = profile.Email;
