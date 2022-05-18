@@ -1,0 +1,63 @@
+﻿@model IEnumerable<RecipeBook.Domain.Entities.Recipe>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>All Recipes</h3>
+            <div class="text-right">
+                @Html.ActionLink("Add a New Recipe", "Create", null, new { @class = "btn btn-default" })
+            </div>
+
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-condensed table-bordered">
+                <tr>
+                    <th class="text-right">
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th class="text-left">
+                        Cuisine
+                    </th>
+                    <th class="text-center">
+                        Actions
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-right">@item.RecipeID</td>
+                        <td>
+                            @Html.ActionLink(item.Name, "Edit", new { item.RecipeID })
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.Cuisine)
+                        </td>
+                        <td class="text-center">
+                            @using (Html.BeginForm("Delete", "Admin"))
+                            {
+                                @Html.Hidden("RecipeID", item.RecipeID)
+                                <input type="submit" class="btn btn-default btn-xs" value="Delete" />
+                            }
+                            <!--@Html.ActionLink("Edit", "Edit", new { id = item.RecipeID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.RecipeID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RecipeID })-->
+                        </td>
+                    </tr>
+                    }
+
+                </table>
+
+            </div>
+
+
+        </div>
+

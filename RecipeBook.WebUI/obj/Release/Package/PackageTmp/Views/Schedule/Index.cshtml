@@ -1,0 +1,100 @@
+﻿@model RecipeBook.WebUI.Models.ScheduleIndexViewModel
+
+@{
+    ViewBag.Title = "RecipeBook: Your Schedule";
+}
+<head>
+    <style>
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: 10px 15px;
+        }
+
+        thead {
+            background: #04AA6D;
+            color: #fff;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #1D3D45;
+        }
+        a {
+            color: #1D3D45;
+            font-weight: 600;
+            font-size: x-large;
+            text-decoration:none;
+        }
+            a:hover {
+                color: #04AA6D;
+                font-weight: 600;
+                font-size: x-large;
+                text-decoration: none;
+            }
+        button, input, select {
+            font-weight: 600;
+            font-size: medium;
+            background-color: #04AA6D;
+            color: white;
+            padding: 5px 5px;
+            margin: 5px 5px;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            min-width: 20%;
+            max-width: 100%;
+            opacity: 0.8;
+            border-radius: 26px;
+            float: right;
+            text-align: center;
+        }
+            
+    </style>
+</head>
+
+
+<h2>This Weeks Schedule</h2>
+<table class="table" id="calendar">
+    <thead>
+        <tr>
+            <th scope="col">Sun</th>
+            <th scope="col">Mon</th>
+            <th scope="col">Tue</th>
+            <th scope="col">Wed</th>
+            <th scope="col">Thu</th>
+            <th scope="col">Fri</th>
+            <th scope="col">Sat</th>
+        </tr>
+    </thead>
+    <tbody id="calendarBody">
+        <tr>
+            <td>
+                @foreach (var line in Model.Schedule.Lines)
+                {
+                <span class="text-left">@line.Recipe.Name</span>
+                <span class="text-right">@line.Recipe.Cuisine</span>
+                <span>
+                    @using (Html.BeginForm("RemoveFromSchedule", "Schedule"))
+                    {
+                        @Html.Hidden("RecipeID", line.Recipe.RecipeID)
+                        @Html.HiddenFor(x => x.ReturnUrl)
+                        <input class="button btn-danger" type="submit" value="Remove"/>
+                    }
+                </span>
+                <br />
+
+                }
+            </td>
+            
+            
+        </tr>
+    </tbody>
+</table>
+
+<div class="text-center">
+    <a href="@Model.ReturnUrl">Select More Recipes</a>
+</div>
