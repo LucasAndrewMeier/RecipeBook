@@ -18,7 +18,6 @@ C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.WebPages.xml
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.csproj.AssemblyReference.cache
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.csproj.CoreCompileInputs.cache
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.csproj.CopyComplete
 C:\Users\meiluca\source\repos\RecipeBook\RecipeBook.Domain\obj\Debug\RecipeBook.Domain.dll
