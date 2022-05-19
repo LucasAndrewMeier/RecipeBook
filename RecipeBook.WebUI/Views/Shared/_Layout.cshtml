@@ -13,7 +13,7 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             margin:auto;
-            max-width:1280px;
+            max-width:1920px;
 
         }
 
@@ -118,10 +118,6 @@
             
         }
 
-        .body-content {
-            margin-top: 80px;
-        }
-
         .navbar-nav {
             align-content: center;
         }
@@ -147,12 +143,12 @@
             }
         
         /* Change styles for cancel button and signup button on extra small screens */
-        @@media screen and (max-width: 767px) {
+        @@media screen and (max-width: 768px) {
             .cancelbtn, .signupbtn {
                 width: 100%;
             }
             #Title{
-                display:none;
+                
             }
             #categories{
                 display:block;
@@ -176,10 +172,6 @@
     <div class="nav navbar ">
         <div class="text-center">
             @Html.ShowButton("Admin", "new { returnUrl = Request.Url.PathAndQuery }")
-            @* @Html.ActionLink("Log In", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn btn-sm" })*@
-
-
-            @*@Html.ActionLink("Sign Up", "Registration", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default navbar-btn btn-sm" })*@
             @Html.ActionLink("Schedule", "Index", "Schedule", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
             @Html.ActionLink("Recipes", "List", "Recipe", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
 

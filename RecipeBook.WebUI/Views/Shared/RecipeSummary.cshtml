@@ -1,44 +1,68 @@
 ﻿@model RecipeBook.Domain.Entities.Recipe
-
+<style>
+    #dataOut{
+        max-width:600px;
+    }
+    #addtosched{
+        display:flex;
+        justify-content: end;
+        
+    }
+    #day{
+        width:max-content;
+    }
+    @@media screen and (max-width: 600px){
+        #addtosched{
+            justify-content:flex-start;
+        }
+    }
+    @@media screen and (max-width: 480px){
+        #addtosched{
+            justify-content:center;
+        }
+    }
+</style>
 <div class="well">
-    
+    @using (Html.BeginForm("AddToSchedule", "Schedule", "Day"))
+    {
+        <div id="addtosched">
+            @Html.HiddenFor(x => x.RecipeID)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+
+            <select id="day" class="buttonLogIn" name="whichDay">
+                <option class="buttonLogIn" value="0">Sun</option>
+                <option class="buttonLogIn" value="1">Mon</option>
+                <option class="buttonLogIn" value="2">Tues</option>
+                <option class="buttonLogIn" value="3">Wed</option>
+                <option class="buttonLogIn" value="4">Thurs</option>
+                <option class="buttonLogIn" value="5">Fri</option>
+                <option class="buttonLogIn" value="6">Sat</option>
+            </select>
+            <input type="submit" class="buttonSignUp" value="Add" />
+        </div>
+    }
+
     <h3 class="pull-left">
         <b>@Model.Name</b>
 
         <span style="margin-right:8px;">@Model.Cuisine</span>
     </h3>
 
-    @using (Html.BeginForm("AddToSchedule", "Schedule", "Day"))
-    {
-        <div class="pull-right">
-            @Html.HiddenFor(x => x.RecipeID)
-            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
 
-            <select id="day" class="buttonLogIn" name="day" style="">
-                <option class="buttonLogIn" value="0">Sunday</option>
-                <option class="buttonLogIn" value="1">Monday</option>
-                <option class="buttonLogIn" value="2">Tuesday</option>
-                <option class="buttonLogIn" value="3">Wednesday</option>
-                <option class="buttonLogIn" value="4">Thursday</option>
-                <option class="buttonLogIn" value="5">Friday</option>
-                <option class="buttonLogIn" value="6">Saturday</option>
-            </select>
-            <input type="submit" class="buttonSignUp" value="Add" />
+    <br />
+    <br />
+    <br />
+    <div class="lead">
+        <div id="dataOut">
+            <label>Ingredients</label>
+            <br />
+            @Model.Ingredients
+            <br />
+            <br />
+            <label>Directions</label>
+            <br />
+            @Model.Directions
         </div>
-    }
-
-    <br />
-    <br />
-    <br />
-    <span class="lead">
-        <label>Ingredients</label>
-        <br />
-        @Model.Ingredients
-        <br />
-        <br />
-        <label>Directions</label>
-        <br />
-        @Model.Directions
-    </span>
+    </div>
 
 </div>
