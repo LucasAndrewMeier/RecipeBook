@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<string>
-@Html.ActionLink("All Cuisines", "List", "Recipe", null, new { @class = "menuItems btn-block buttonLogIn btn-med" })
+
+@Html.ActionLink("All Cuisines", "List", "Recipe", null, new { @class = "menuItems btn-block buttonLogIn btn-med not-selected-this"})
 
 @foreach (var link in Model)
 {
@@ -10,5 +11,5 @@
    cuisine = link,
    page = 1
 },
-new { @class = "menuItems btn-block buttonSignUp "+ (link == ViewBag.SelectedCuisine ? "btn-primary" : "" )})
+new { @class = "menuItems btn-block buttonSignUp not-selected-this"+ (link == ViewBag.SelectedCuisine ? "selected-this" : "" )})
 }

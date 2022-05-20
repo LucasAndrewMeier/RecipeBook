@@ -3,34 +3,37 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <title>@ViewBag.Title - RecipeBook</title>
     <style>
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            margin:auto;
-            max-width:1920px;
-
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1920px;
         }
 
         * {
             box-sizing: border-box;
         }
+
         a {
-            
             color: #1D3D45;
             font-weight: 600;
             font-size: x-large;
         }
         /* Set a style for all buttons */
-        button, input, select, .menuItems {
+        button, select, input, .menuItems {
             font-weight: 600;
             font-size: medium;
-            background-color: #04AA6D;
             color: white;
             padding: 5px 5px;
             margin: 5px 5px;
@@ -39,10 +42,10 @@
             width: 80%;
             opacity: 0.8;
             border-radius: 26px;
-            float:right;
-            text-align:center;
-            
+            float: right;
+            text-align: center;
         }
+
         .buttonLogIn {
             color: #1D3D45;
             background-color: #ffffff;
@@ -51,6 +54,7 @@
 
         .buttonSignUp {
             border: 2px solid #04AA6D;
+            background-color: #04AA6D;
         }
 
         button:hover {
@@ -115,7 +119,6 @@
         .navbar {
             background-color: white;
             padding: 20px;
-            
         }
 
         .navbar-nav {
@@ -127,73 +130,131 @@
             background: none !important;
             opacity: 0.8;
         }
+
         .text-styling {
             color: black;
-            margin-right: 1em;
             font-weight: 700;
+            font-size: x-large;
+            margin-left: 2em;
+            margin-right: 2em;
         }
+
             .text-styling:hover {
                 color: #04AA6D;
+                background-color: white;
                 text-decoration: none;
             }
 
-            .MenuButton:hover {
-                opacity: 1;
-                color: #1D3D45;
-            }
-        
+        .MenuButton:hover {
+            opacity: 1;
+            color: #1D3D45;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #fff;
+            background-color: #04AA6D;
+        }
+
+        a:active, a:enabled {
+            color: #fff;
+            background-color: #04AA6D;
+        }
+
+        .not-selected-this {
+            color: #04AA6D;
+            background-color: #ffffff;
+            border: 2px solid #04AA6D;
+        }
+
+        .selected-this {
+            color: #fff;
+            background-color: #04AA6D;
+            border: 2px solid #04AA6D;
+        }
+
+        #links {
+            display: flex;
+            align-content: flex-start;
+        }
+
+        #Title {
+            font-size: 62px;
+        }
+
         /* Change styles for cancel button and signup button on extra small screens */
         @@media screen and (max-width: 768px) {
             .cancelbtn, .signupbtn {
                 width: 100%;
             }
-            #Title{
-                
+
+            #Title {
+                display: flex;
+                justify-content: center;
+                font-size: 48px;
             }
-            #categories{
-                display:block;
+
+            #categories {
+                display: block;
             }
+
+            #links {
+                justify-content: space-evenly;
+            }
+
+            .text-styling {
+                margin: auto;
+            }
+
+            #image {
+                display: none;
+            }
+        }
         }
     </style>
 </head>
 <body>
-    <div class="navbar ">
+    <div class="navbar">
         <div class="navbar-right">
-            <button class="buttonSignUp" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Log In</button>
-        </div>
-
-        <div class="text-center">
-            <div class="pull-left">
-                <h1 id="Title" class="pull-left" style="color:black; margin-top:50px; margin-left:35px; font-weight: 700;">Recipe Book</h1>
-            </div>
+            <button class="buttonLogIn" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
+            <button class="buttonSignUp" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
         </div>
         
-    </div>
-    <div class="nav navbar ">
-        <div class="text-center">
-            @Html.ShowButton("Admin", "new { returnUrl = Request.Url.PathAndQuery }")
-            @Html.ActionLink("Schedule", "Index", "Schedule", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
-            @Html.ActionLink("Recipes", "List", "Recipe", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
+        <div class="page-header">
+            
+            <h1 id="Title" style="color:black; margin-top:50px; font-weight: 700;"><img src="~/Content/Images/restaurant-895427_1920.png" id="image" alt="logo" width="250" />Recipe Book</h1>
+
+            <br />
+            <div id="links" class="navbar-default">
+                @Html.ShowButton("Admin", "new { returnUrl = Request.Url.PathAndQuery }")
+                @Html.ActionLink("Schedule", "Index", "Schedule", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
+                @Html.ActionLink("Recipes", "List", "Recipe", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "text-styling" })
+
+            </div>
 
         </div>
+                
     </div>
+    
+        
     @using (Html.BeginForm("Login", "Account", null, FormMethod.Post))
     {
         <div id="id02" class="modal">
             <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <form class="modal-content"  action="/action_page.php">
-                <div class="container">
-                    <h1 style="color:white;">Log In</h1>
+            <form class="modal-content" action="/action_page.php">
+                <h1 class="modal-header" style="color:white;">Log In</h1>
+                <div class="modal-body">
 
-                    <label style="color:white;" for="name"><b>User Name</b></label>
-                    <input type="text" placeholder="Enter UserName" name="UserName" required />
+
+                    
+                    <input type="text" placeholder="UserName" name="UserName" required />
                     <br />
-                    <label style="color:white;" for="Password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="Password" required />
+                    
+                    <input type="password" placeholder="Password" name="Password" required />
 
-                    <div class="clearfix center-block">
-                        <button type="submit" class="signupbtn">Log In</button>
-                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                    <div class="clearfix" style="margin-left:auto;margin-right:auto;">
+                        <button type="submit" class="btn-success">Log In</button>
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="btn-default">Cancel</button>
                     </div>
                 </div>
             </form>

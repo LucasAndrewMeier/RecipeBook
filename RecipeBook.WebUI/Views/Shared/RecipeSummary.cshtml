@@ -1,57 +1,71 @@
 ﻿@model RecipeBook.Domain.Entities.Recipe
 <style>
     #dataOut{
-        max-width:600px;
+        max-width:1280px;
     }
     #addtosched{
         display:flex;
-        justify-content: end;
+        justify-content: flex-end;
         
+    }
+    .buttonSignUp{
+        max-width:150px;
+
     }
     #day{
         width:max-content;
     }
-    @@media screen and (max-width: 600px){
+    @@media screen and (max-width: 1025px){
+        #addtosched{
+           
+            
+        }
+    }
+    @@media screen and (max-width: 700px){
         #addtosched{
             justify-content:flex-start;
+        }
+        .buttonSignUp {
+            max-width: 400px;
         }
     }
     @@media screen and (max-width: 480px){
         #addtosched{
-            justify-content:center;
+            justify-content:flex-start;
+        }
+        .buttonSignUp {
+            max-width: 300px;
         }
     }
 </style>
-<div class="well">
-    @using (Html.BeginForm("AddToSchedule", "Schedule", "Day"))
-    {
-        <div id="addtosched">
-            @Html.HiddenFor(x => x.RecipeID)
-            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+<div class="well-sm">
+    
+    <div id="header" class="modal-header">
 
-            <select id="day" class="buttonLogIn" name="whichDay">
-                <option class="buttonLogIn" value="0">Sun</option>
-                <option class="buttonLogIn" value="1">Mon</option>
-                <option class="buttonLogIn" value="2">Tues</option>
-                <option class="buttonLogIn" value="3">Wed</option>
-                <option class="buttonLogIn" value="4">Thurs</option>
-                <option class="buttonLogIn" value="5">Fri</option>
-                <option class="buttonLogIn" value="6">Sat</option>
-            </select>
-            <input type="submit" class="buttonSignUp" value="Add" />
-        </div>
-    }
-
-    <h3 class="pull-left">
-        <b>@Model.Name</b>
-
-        <span style="margin-right:8px;">@Model.Cuisine</span>
-    </h3>
+        <h3><b>@Model.Name</b></h3>
 
 
-    <br />
-    <br />
-    <br />
+        <h3 style="margin-right:8px;">@Model.Cuisine</h3>
+        @using (Html.BeginForm("AddToSchedule", "Schedule", "Day"))
+        {
+            <span id="addtosched">
+                @Html.HiddenFor(x => x.RecipeID)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+
+                <select id="day" class="buttonLogIn" name="whichDay">
+                    <option class="buttonLogIn" value="0">Sun</option>
+                    <option class="buttonLogIn" value="1">Mon</option>
+                    <option class="buttonLogIn" value="2">Tues</option>
+                    <option class="buttonLogIn" value="3">Wed</option>
+                    <option class="buttonLogIn" value="4">Thurs</option>
+                    <option class="buttonLogIn" value="5">Fri</option>
+                    <option class="buttonLogIn" value="6">Sat</option>
+                </select>
+                <input type="submit" class="buttonSignUp" value="Add" />
+            </span>
+        }
+    </div>
+    
     <div class="lead">
         <div id="dataOut">
             <label>Ingredients</label>
@@ -63,6 +77,9 @@
             <br />
             @Model.Directions
         </div>
+    </div>
+    <div class="modal-footer">
+
     </div>
 
 </div>

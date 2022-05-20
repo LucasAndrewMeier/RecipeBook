@@ -10,15 +10,16 @@
     #container{
         display:flex;
         align-items:flex-start;
-        justify-content:center;
+        flex:2,0,auto;
     }
     #categories{
-        width:180px;
+        width:220px;
+
     }
 </style>
 <div id="container" class="row panel">
 
-    <div id="categories">
+    <div id="categories" class="col-xs-3">
         @Html.Action("Menu", "Nav")
     </div>
 
