@@ -181,6 +181,23 @@
         #Title {
             font-size: 62px;
         }
+        #id02 {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal-content {
+            display: flex;
+            justify-content:center;
+            
+            
+        }
+        .modal-header{
+            justify-self:center;
+        }
+        .modal-body{
+            max-width:768px;
+            margin-left:auto;
+            margin-right:auto;
+        }
 
         /* Change styles for cancel button and signup button on extra small screens */
         @@media screen and (max-width: 768px) {
@@ -239,26 +256,25 @@
         
     @using (Html.BeginForm("Login", "Account", null, FormMethod.Post))
     {
-        <div id="id02" class="modal">
-            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <form class="modal-content" action="/action_page.php">
-                <h1 class="modal-header" style="color:white;">Log In</h1>
-                <div class="modal-body">
+<div id="id02" class="modal">
+    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    
+    <form class="modal-content" action="/action_page.php">
+        <h1 class="modal-header" style="color:white;font-weight:700;">Login</h1>
+        <div class="modal-body">
 
+            <input type="text" style="color: black; max-width: 500px;" placeholder="UserName" name="UserName" required />
+            <br />
 
-                    
-                    <input type="text" placeholder="UserName" name="UserName" required />
-                    <br />
-                    
-                    <input type="password" placeholder="Password" name="Password" required />
+            <input type="password" style="color: black; max-width: 500px;" placeholder="Password" name="Password" required />
 
-                    <div class="clearfix" style="margin-left:auto;margin-right:auto;">
-                        <button type="submit" class="btn-success">Log In</button>
-                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="btn-default">Cancel</button>
-                    </div>
-                </div>
-            </form>
-        </div>}
+            <div class="clearfix" style="margin-left:auto;margin-right:auto;">
+                <button type="submit" style="color: darkgray; max-width: 500px;" class="btn-success">Log In</button>
+                <button type="button" style="color: black; max-width: 500px;" onclick="document.getElementById('id02').style.display='none'" class="btn-default">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>}
     <!--End Log In Modal-->
 
     @RenderBody()
