@@ -9,7 +9,7 @@
 <style>
     #container{
         display:flex;
-        align-items:flex-start;
+        align-items:stretch;
         flex:2,0,auto;
     }
     #categories{
@@ -23,7 +23,7 @@
         @Html.Action("Menu", "Nav")
     </div>
 
-    <div class="col-xs-8">
+    <div class="row panel">
         
         @foreach (var r in Model.Recipes)
         {
